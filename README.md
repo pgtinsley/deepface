@@ -1,3 +1,51 @@
+## FOR OGE
+
+Clone this repository somewhere to your account on hutchentoot.
+
+Change directories with:
+
+```
+cd deepface/tests/
+```
+
+I believe the scripts have built-in functions to download models that aren't already downloaded... so no need to worry about that this time.
+
+Create another conda environment on hutchentoot using the following command:
+```
+conda env create -f deepface.yml
+```
+
+That should probably take a bit of time to set up. After it is set up, activate the conda environment with 
+```
+conda activate deepface
+```
+
+After that, same thing -- make sure all of your images are in one folder. They can have the extensions: .png, .jpg, .jpeg.
+
+Once those are all in the same folder, you can run the following command from the deepface/tests/ folder. This detect faces, extract features, and put them in a pkl file.
+
+> You can change the detection and descriptor models; check the oge.py script.
+> The options for detector are : [opencv, ssd, dlib, mtcnn]
+> The options for descriptor are : [vgg, facenet, openface, fbdeepface]
+
+```python
+python oge.py --dir <path/to/folder> --embeddings <path/to/pkl/file>
+#OR
+python oge.py -d <path/to/folder> -e <path/to/pkl/file>
+
+#Example
+python oge.py --dir ./data/test --embeddings test.pkl
+python oge.py -d ./data/test -e test.pkl
+```
+
+This time, it'll take longer, and the detect and feature extraction phases are tied together. 
+
+
+If you have any problems running this one, lmk! 
+
+Best,
+PT
+
 # deepface
 
 [![Downloads](https://pepy.tech/badge/deepface)](https://pepy.tech/project/deepface)
